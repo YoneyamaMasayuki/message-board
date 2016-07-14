@@ -1,4 +1,6 @@
 class Message < ActiveRecord::Base
+  # 年齡は必須入力かつ0以上の数字
+  validates:age, numericality: { only_integer:true, greater_than_or_equal_to: 0}, presence:true
   # 名前は必須入力かつ20文字以内
   validates:name, length: { maximum: 20}, presence:true
   # 内容は必須入力かつ2文字以上30文字以下
